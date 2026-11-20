@@ -13,16 +13,23 @@
   setTimeout(done, 3000);
   $('#year').textContent = new Date().getFullYear();
 
-  /* ---------- header, progress, fab ---------- */
-  const header = $('#header'), bar = $('#progress'), fab = $('#fab');
+  /* ---------- header, progress, fab (un solo handler con rAF) ---------- */
+  const header = $('#header'), bar = $('#progress'), fab = $('#fab'), heroContent = $('.hero__content'), pvMark = $('.pv__mark');
+  let sTick = false, docH = 1, vh = innerHeight;
+  const measure = () => { docH = Math.max(1, document.documentElement.scrollHeight - innerHeight); vh = innerHeight; };
   const onScroll = () => {
-    const y = scrollY, h = document.documentElement.scrollHeight - innerHeight;
+    sTick = false; const y = scrollY;
     header.classList.toggle('is-scrolled', y > 40);
-    bar.style.transform = `scaleX(${h > 0 ? y / h : 0})`;
-    fab.classList.toggle('is-on', y > innerHeight * .7);
-    const t = $('.mauve__tree'); if (t && !reduce) t.style.transform = `translateY(${(y * .06) % 400}px) scale(1.12)`;
+    bar.style.transform = `scaleX(${Math.min(1, y / docH)})`;
+    fab.classList.toggle('is-on', y > vh * .7);
+    if (!reduce) {
+      if (y < vh) heroContent.style.transform = `translate3d(0,${y * .16}px,0)`;
+      if (pvMark) pvMark.style.setProperty('--rot', (-8 + (y / docH) * 40) + 'deg');
+    }
   };
-  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  addEventListener('scroll', () => { if (!sTick) { sTick = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  addEventListener('resize', () => { measure(); onScroll(); });
+  addEventListener('load', measure); measure(); onScroll();
 
   /* mobile nav */
   const burger = $('#burger'), nav = $('#nav');
@@ -55,34 +62,31 @@
   }
   const mapIO = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); mapIO.disconnect(); } }), { threshold: .3 });
   mapIO.observe($('#map'));
+  new IntersectionObserver((es) => es.forEach(e => e.target.classList.toggle('is-live', e.isIntersecting)), { threshold: .05 }).observe($('#map'));
+  const centerMap = () => { const m = $('#map'); if (m.scrollWidth > m.clientWidth + 4) m.scrollLeft = m.scrollWidth * .487 - m.clientWidth / 2; };
+  addEventListener('load', centerMap);
 
-  /* ---------- hero: luz que sigue al cursor ---------- */
+  /* ---------- hero: luz que sigue al cursor (solo repinta mientras se mueve) ---------- */
   const hero = $('#inicio'), col = $('.hero__img--color');
-  let tx = .5, ty = .55, cx = tx, cy = ty, rad = 0, tr = 0, auto = true, raf;
-  const frame = () => {
-    cx += (tx - cx) * .12; cy += (ty - cy) * .12; rad += (tr - rad) * .08;
-    col.style.setProperty('--mx', cx * 100 + '%'); col.style.setProperty('--my', cy * 100 + '%'); col.style.setProperty('--rad', rad + 'px');
-    raf = requestAnimationFrame(frame);
-  };
+  let tx = .5, ty = .55, cx = .5, cy = .55, rad = 0, tr = 0, raf = 0, heroOn = true, touched = false;
   const big = () => Math.max(hero.clientWidth, hero.clientHeight) * .34;
-  hero.addEventListener('pointermove', (e) => {
-    auto = false; const r = hero.getBoundingClientRect();
-    tx = (e.clientX - r.left) / r.width; ty = (e.clientY - r.top) / r.height; tr = big();
-    $('#heroHint').style.opacity = 0;
-  });
-  hero.addEventListener('pointerleave', () => { tr = auto ? tr : big() * .0; setTimeout(() => { if (!auto) tr = 0; }, 0); });
-  if (!reduce) {
-    frame();
-    // En táctil / sin cursor: la luz se enciende sola y recorre la fachada.
-    const t0 = performance.now();
-    const drift = (t) => {
-      if (auto) { const s = (t - t0) / 1000; if (s > 1.6) { tr = big() * 1.6; tx = .5 + Math.sin(s * .5) * .3; ty = .55 + Math.cos(s * .4) * .1; } }
-      requestAnimationFrame(drift);
-    };
-    requestAnimationFrame(drift);
-  } else { col.style.setProperty('--rad', '3000px'); }
-  const heroParallax = () => { if (!reduce && scrollY < innerHeight) $('.hero__content').style.transform = `translateY(${scrollY * .18}px)`; };
-  addEventListener('scroll', heroParallax, { passive: true });
+  const paint = () => {
+    cx += (tx - cx) * .16; cy += (ty - cy) * .16; rad += (tr - rad) * .12;
+    col.style.setProperty('--mx', (cx * 100).toFixed(2) + '%'); col.style.setProperty('--my', (cy * 100).toFixed(2) + '%'); col.style.setProperty('--rad', rad.toFixed(1) + 'px');
+    raf = (Math.abs(tx - cx) > .0006 || Math.abs(ty - cy) > .0006 || Math.abs(tr - rad) > .5) ? requestAnimationFrame(paint) : 0;
+  };
+  const kick = () => { if (!raf && heroOn) raf = requestAnimationFrame(paint); };
+  if (reduce) { col.style.setProperty('--rad', '3000px'); }
+  else {
+    hero.addEventListener('pointermove', (e) => {
+      touched = true; const r = hero.getBoundingClientRect();
+      tx = (e.clientX - r.left) / r.width; ty = (e.clientY - r.top) / r.height; tr = big(); kick();
+      $('#heroHint').style.opacity = 0;
+    }, { passive: true });
+    // sin cursor (táctil) o si nadie lo mueve: la luz se enciende sola, una vez, y se queda quieta
+    setTimeout(() => { if (!touched) { tx = .5; ty = .55; tr = big() * 2.1; kick(); } }, 1800);
+    new IntersectionObserver((es) => { heroOn = es[0].isIntersecting; if (!heroOn && raf) { cancelAnimationFrame(raf); raf = 0; } }).observe(hero);
+  }
 
   /* ---------- marco dorado: tilt ---------- */
   const fr = $('#frameWrap');
@@ -196,8 +200,8 @@
   pv.addEventListener('mouseleave', () => { pvPaused = false; setPv(pvI); });
   // arranca el ciclo solo cuando la sección es visible
   new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { o.disconnect(); setPv(0); } }, { threshold: .35 }).observe(pv);
-  const mark = $('.pv__mark');
-  addEventListener('scroll', () => { if (!reduce && mark) { const r = $('#propuesta').getBoundingClientRect(); mark.style.setProperty('--rot', (-8 + (r.top / innerHeight) * 10) + 'deg'); } }, { passive: true });
+  const setPvW = () => { pv.style.setProperty('--pvw', Math.round(pv.clientWidth * .62) + 'px'); };
+  setPvW(); addEventListener('resize', setPvW);
 
   /* ---------- carrusel del Centro Histórico ---------- */
   const car = $('#car'), cs = $$('.car__s', car), dots = $('#carDots'), cBar = $('#carBar');
