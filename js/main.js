@@ -31,6 +31,31 @@
   addEventListener('resize', () => { measure(); onScroll(); });
   addEventListener('load', measure); measure(); onScroll();
 
+  /* ---------- scroll suave (Lenis) + GSAP ScrollTrigger sincronizados ---------- */
+  let lenis = null;
+  if (!reduce && window.Lenis && window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+    lenis = new Lenis({ lerp: .1, smoothWheel: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((t) => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
+    /* anclas internas respetando el header fijo (scroll-padding-top: 90px) */
+    $$('a[href^="#"]').forEach(a => a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id.length < 2) return;
+      const target = $(id); if (!target) return;
+      e.preventDefault();
+      /* las imágenes con lazy-load cambian la altura de la página: reintenta hasta cuadrar */
+      const go = (n) => lenis.scrollTo(target, { offset: -90, onComplete: () => { if (n < 3 && Math.abs(target.getBoundingClientRect().top - 90) > 4) go(n + 1); } });
+      go(0);
+    }));
+    /* diálogos: pausar el scroll de la página y dejar scrollear su contenido */
+    $$('dialog').forEach(d => {
+      d.setAttribute('data-lenis-prevent', '');
+      new MutationObserver(() => d.open ? lenis.stop() : lenis.start()).observe(d, { attributes: true, attributeFilter: ['open'] });
+    });
+  }
+
   /* mobile nav */
   const burger = $('#burger'), nav = $('#nav');
   const setNav = (o) => { nav.classList.toggle('is-open', o); burger.setAttribute('aria-expanded', o); };
