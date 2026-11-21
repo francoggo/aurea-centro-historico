@@ -69,6 +69,8 @@ em{font-style:italic;font-weight:inherit}
 .sec-head--sm h3{font-family:var(--f-disp);letter-spacing:.2em;text-transform:uppercase;font-size:clamp(18px,1.6vw,26px);color:var(--terra)}
 
 .btn{display:inline-block;font-family:var(--f-disp);font-weight:500;letter-spacing:.2em;text-transform:uppercase;font-size:clamp(12px,.95vw,14px);padding:17px 32px;border:1px solid transparent;text-decoration:none;border-radius:99px;transition:transform .3s,background .3s,color .3s,border-color .3s;cursor:pointer}
+.btn{translate:var(--tx,0) var(--ty,0)}
+@media (hover:hover){.btn{transition:transform .3s,background .3s,color .3s,border-color .3s,translate .45s cubic-bezier(.2,.7,.2,1)}}
 .btn:hover{transform:translateY(-3px)}
 .btn--gold{background:var(--gold);color:var(--dark)}.btn--gold:hover{background:#dcbd72}
 .btn--ghost{border-color:rgba(255,255,255,.7);color:#fff}.btn--ghost:hover{background:#fff;color:var(--dark)}

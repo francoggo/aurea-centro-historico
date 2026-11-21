@@ -92,6 +92,18 @@
     addEventListener('load', () => ScrollTrigger.refresh());
   }
 
+  /* botones magnéticos (adaptado de React Bits "Magnet"): el botón sigue sutilmente al cursor */
+  if (!reduce && matchMedia('(hover:hover) and (pointer:fine)').matches) {
+    $$('.btn').forEach(b => {
+      b.addEventListener('pointermove', (e) => {
+        const r = b.getBoundingClientRect();
+        b.style.setProperty('--tx', ((e.clientX - r.left - r.width / 2) * .22).toFixed(1) + 'px');
+        b.style.setProperty('--ty', ((e.clientY - r.top - r.height / 2) * .32).toFixed(1) + 'px');
+      });
+      b.addEventListener('pointerleave', () => { b.style.removeProperty('--tx'); b.style.removeProperty('--ty'); });
+    });
+  }
+
   /* mobile nav */
   const burger = $('#burger'), nav = $('#nav');
   const setNav = (o) => { nav.classList.toggle('is-open', o); burger.setAttribute('aria-expanded', o); };
