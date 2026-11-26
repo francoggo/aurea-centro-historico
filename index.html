@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Josefin+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="js/vendor/lenis.css">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
 
@@ -34,7 +34,7 @@
   </a>
   <nav class="nav" id="nav" aria-label="Principal">
     <a href="#inicio">Inicio</a><i aria-hidden="true">•</i>
-    <a href="#memoria">Memoria de Áurea</a><i aria-hidden="true">•</i>
+    <a href="#historia">Memoria de Áurea</a><i aria-hidden="true">•</i>
     <a href="#modelos">Modelos</a><i aria-hidden="true">•</i>
     <a href="#ubicacion">Ubicación</a><i aria-hidden="true">•</i>
     <a href="#contacto">Contacto</a><i aria-hidden="true">•</i>
@@ -66,13 +66,13 @@
 <div class="strip" aria-hidden="true"><span>Mazatlán, Sin 2026</span><b>•</b><span>Niños Héroes • Sixto Osuna</span></div>
 
 <!-- ============ MEMORIA ============ -->
-<section class="panel mauve grain" id="memoria">
+<section class="panel sage-d grain" id="memoria">
   <div class="mauve__tree" aria-hidden="true"></div>
   <div class="wrap memoria">
     <figure class="frame reveal" id="frameWrap">
-      <div class="frame__photo"><img src="assets/img/d-facade.webp" alt="Render de ÁUREA Centro Histórico: edificio Art Déco restaurado con azotea verde" loading="lazy" decoding="async"></div>
+      <div class="frame__photo"><img src="assets/img/concept-photo.webp" alt="Fotografía del edificio Art Déco original, antes de la restauración" loading="lazy" decoding="async"></div>
       <img class="frame__gold" src="assets/img/frame.webp" alt="" aria-hidden="true">
-      <figcaption>ÁUREA Centro Histórico · render ilustrativo</figcaption>
+      <figcaption>El edificio hoy, antes de la intervención</figcaption>
     </figure>
     <div class="memoria__text reveal">
       <img class="memoria__logo" src="assets/img/logo-light.webp" alt="ÁUREA Centro Histórico" width="352" height="111" loading="lazy" decoding="async">
@@ -81,215 +81,6 @@
     </div>
   </div>
 
-  <div class="wrap facts reveal" aria-label="ÁUREA en cifras">
-    <div class="fact"><b data-count="4">0</b><span>niveles</span></div>
-    <div class="fact"><b data-count="31">0</b><span>residencias</span></div>
-    <div class="fact"><b data-count="13">0</b><span>tipologías</span></div>
-    <div class="fact"><b data-count="2">0</b><span>accesos</span></div>
-  </div>
-</section>
-
-<!-- ============ ANTES / DESPUÉS ============ -->
-<section class="panel cream" id="restauracion">
-  <div class="wrap">
-    <header class="sec-head reveal">
-      <p class="eyebrow">Narrativa de obra</p>
-      <h2>La restauración debe <em>mostrarse</em>, no solo explicarse.</h2>
-    </header>
-    <div class="compare reveal" id="compare" aria-label="Comparador: edificio original y render de ÁUREA">
-      <img src="assets/img/d-facade.webp" alt="Render de ÁUREA Centro Histórico restaurado" loading="lazy" draggable="false">
-      <div class="compare__before"><img src="assets/img/concept-photo.webp" alt="Edificio original antes de la intervención" loading="lazy" draggable="false"></div>
-      <span class="compare__tag compare__tag--l">Ayer</span><span class="compare__tag compare__tag--r">ÁUREA</span>
-      <div class="compare__handle" id="compareHandle" role="slider" tabindex="0" aria-label="Deslizar entre el edificio original y ÁUREA" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><i></i></div>
-    </div>
-    <p class="compare__note reveal">Arrastra para comparar. Las imágenes del proyecto son ilustrativas.</p>
-  </div>
-</section>
-
-<!-- ============ PILARES ============ -->
-<section class="panel dark grain" id="propuesta">
-  <img class="pv__mark" src="assets/img/logo-light.webp" alt="" aria-hidden="true">
-  <div class="wrap">
-    <header class="sec-head sec-head--light reveal">
-      <p class="eyebrow eyebrow--gold">Propuesta de valor</p>
-      <h2>Una nueva forma de habitar <em>la historia.</em></h2>
-      <p class="sec-head__lead">Cinco ideas sostienen cada decisión de ÁUREA. Recórrelas.</p>
-    </header>
-
-    <div class="pv reveal" id="pv" role="list">
-      <article class="pv__p is-on" role="listitem" tabindex="0" data-i="0" style="--c:#B4530F">
-        <img src="assets/img/bola-de-oro.webp" alt="" loading="lazy" decoding="async">
-        <div class="pv__shade"></div>
-        <span class="pv__n">01</span>
-        <h3 class="pv__t">Historia y arquitectura</h3>
-        <div class="pv__body">
-          <svg viewBox="0 0 64 64" aria-hidden="true"><path pathLength="1" d="M32 6 8 26v32h48V26z"/><path pathLength="1" d="M32 6v52M20 20l12 14M44 20 32 34M16 44l16-10 16 10"/></svg>
-          <h4>Historia y arquitectura</h4>
-          <p>Un edificio con antecedentes e identidad arquitectónica que conserva elementos de su esencia original.</p>
-          <span class="pv__tag">Art Déco · Calle del Oro</span>
-        </div>
-      </article>
-      <article class="pv__p" role="listitem" tabindex="0" data-i="1" style="--c:#8A3F0B">
-        <img src="assets/img/concept-photo.webp" alt="" loading="lazy" decoding="async">
-        <div class="pv__shade"></div>
-        <span class="pv__n">02</span>
-        <h3 class="pv__t">Restauración con propósito</h3>
-        <div class="pv__body">
-          <svg viewBox="0 0 64 64" aria-hidden="true"><path pathLength="1" d="M10 14h30a6 6 0 0 1 0 12H10zM22 26v34"/><path pathLength="1" d="M44 18l10 10M50 14l4 4"/></svg>
-          <h4>Restauración con propósito</h4>
-          <p>Intervenimos con respeto: cada material y cada detalle recuperado cuenta la historia del inmueble.</p>
-          <span class="pv__tag">Fachada · Materiales · Detalle</span>
-        </div>
-      </article>
-      <article class="pv__p" role="listitem" tabindex="0" data-i="2" style="--c:#8F6A66">
-        <img src="assets/img/d-stairs.webp" alt="" loading="lazy" decoding="async">
-        <div class="pv__shade"></div>
-        <span class="pv__n">03</span>
-        <h3 class="pv__t">Arte y cultura</h3>
-        <div class="pv__body">
-          <svg viewBox="0 0 64 64" aria-hidden="true"><path pathLength="1" d="M32 8C16 8 6 20 6 32c0 10 8 14 14 14 5 0 6-3 6-6 0-4 3-6 7-6h8c8 0 17-4 17-12C58 14 46 8 32 8z"/><circle pathLength="1" cx="20" cy="26" r="3"/><circle pathLength="1" cx="32" cy="19" r="3"/><circle pathLength="1" cx="44" cy="24" r="3"/></svg>
-          <h4>Arte y cultura</h4>
-          <p>El arte acompaña y enriquece los espacios, no únicamente como decoración.</p>
-          <span class="pv__tag">Galería de época · Obra</span>
-        </div>
-      </article>
-      <article class="pv__p" role="listitem" tabindex="0" data-i="3" style="--c:#7C8967">
-        <img src="assets/img/d-living.webp" alt="" loading="lazy" decoding="async">
-        <div class="pv__shade"></div>
-        <span class="pv__n">04</span>
-        <h3 class="pv__t">Experiencia residencial</h3>
-        <div class="pv__body">
-          <svg viewBox="0 0 64 64" aria-hidden="true"><path pathLength="1" d="M10 54V30l22-18 22 18v24z"/><path pathLength="1" d="M26 54V38h12v16M22 30h20"/></svg>
-          <h4>Experiencia residencial</h4>
-          <p>Una forma de habitar que prioriza la comodidad, la privacidad, la calidad y la conexión con el entorno.</p>
-          <span class="pv__tag">Confort · Privacidad · Calidad</span>
-        </div>
-      </article>
-      <article class="pv__p" role="listitem" tabindex="0" data-i="4" style="--c:#A6873D">
-        <img src="assets/img/beach.webp" alt="" loading="lazy" decoding="async">
-        <div class="pv__shade"></div>
-        <span class="pv__n">05</span>
-        <h3 class="pv__t">Ubicación y contexto</h3>
-        <div class="pv__body">
-          <svg viewBox="0 0 64 64" aria-hidden="true"><path pathLength="1" d="M6 14l16-6 20 6 16-6v42l-16 6-20-6-16 6z"/><path pathLength="1" d="M22 8v42M42 14v42"/></svg>
-          <h4>Ubicación y contexto</h4>
-          <p>Vivir cerca de la vida cultural, gastronómica, histórica y social de Mazatlán.</p>
-          <span class="pv__tag">Plazuela Machado · Olas Altas</span>
-        </div>
-      </article>
-    </div>
-    <div class="pv__bar" aria-hidden="true"><i id="pvBar"></i></div>
-  </div>
-</section>
-
-<!-- ============ LA BOLA DE ORO ============ -->
-<section class="panel terra grain" id="historia">
-  <div class="wrap bola">
-    <div class="bola__img reveal">
-      <img src="assets/img/bola-cutout.webp" alt="Fotografía histórica de la esquina de Sixto Osuna y Niños Héroes, La Bola de Oro" loading="lazy" decoding="async">
-    </div>
-    <div class="bola__text reveal">
-      <p class="eyebrow eyebrow--light">Siglo XIX · Calle del Oro</p>
-      <h2>La Bola de Oro</h2>
-      <p>En el siglo XIX, la actual esquina de Sixto Osuna y Niños Héroes formaba parte de la antigua Calle del Oro, una de las principales arterias comerciales del puerto.</p>
-      <p>En este sitio se estableció <em>La Bola de Oro</em>, un reconocido almacén vinculado a la actividad comercial de Mazatlán, donde se ofrecían provisiones, mercancías diversas y cerveza importada de Nueva Orleans.</p>
-      <a class="link-arrow" href="#modelos">Conoce cómo vuelve a escribirse esta esquina <span>→</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ EXPERIENCIA ============ -->
-<section class="panel dark grain" id="experiencia">
-  <div class="wrap">
-    <header class="sec-head sec-head--light reveal">
-      <p class="eyebrow eyebrow--gold">El verdadero lujo está en la experiencia</p>
-      <h2>Arquitectura · Arte · Hospitalidad · <em>Entorno</em></h2>
-    </header>
-
-    <div class="tabs reveal" role="tablist" aria-label="Espacios de ÁUREA">
-      <button role="tab" aria-selected="true" data-tab="access">Access &amp; Concierge</button>
-      <button role="tab" aria-selected="false" data-tab="outdoor">Outdoor &amp; Social Zone</button>
-      <button role="tab" aria-selected="false" data-tab="coffee">Coffee Station</button>
-      <button role="tab" aria-selected="false" data-tab="roof">Roof &amp; Experiences</button>
-    </div>
-
-    <div class="stage reveal" id="stage">
-      <div class="stage__panes">
-        <div class="pane is-on" data-pane="access">
-          <img src="assets/img/d-access.webp" alt="Vestíbulo y concierge con piso de geometría en blanco y negro" loading="lazy" decoding="async">
-          <div class="pane__txt"><h3>Access &amp; Concierge.</h3><p>Geometría, contraste y perspectiva. Iluminación cálida y una galería fotográfica de época que enmarca el ascenso: un recorrido sobrio que conecta el vestíbulo con el elevador, acompañado por un servicio de concierge dedicado a elevar la experiencia de cada estancia.</p></div>
-        </div>
-        <div class="pane" data-pane="outdoor">
-          <img src="assets/img/d-outdoor.webp" alt="Patio central con el árbol de Huanacaxtle al atardecer" loading="lazy" decoding="async">
-          <div class="pane__txt"><h3>Outdoor &amp; Social Zone.</h3><p>En el corazón del proyecto. Un patio central donde la vegetación curada, la ventilación natural y la luz de acento crean un entorno de pausa y encuentro. Complementado con una estación de bicicletas que integra la movilidad urbana al ritmo cotidiano.</p></div>
-        </div>
-        <div class="pane" data-pane="coffee">
-          <img src="assets/img/d-coffee.webp" alt="Coffee Station de ÁUREA Café" loading="lazy" decoding="async">
-          <div class="pane__txt"><h3>Coffee Station.</h3><p>La pausa justa antes del exterior. Este rincón une café de grano seleccionado y la vista abierta a la ciudad, funcionando como un paso natural hacia la luz de la terraza.</p></div>
-        </div>
-        <div class="pane" data-pane="roof">
-          <img src="assets/img/d-roof.webp" alt="Terraza con fogata y atardecer" loading="lazy" id="roofImg">
-          <div class="pane__txt"><h3>Roof &amp; Experiences.</h3><p>Una extensión de la vida privada hacia el aire libre. La terraza superior está concebida como un escenario dinámico que activa la comunidad y el bienestar: desde sesiones de wellness al amanecer hasta encuentros informales al atardecer.</p>
-            <div class="moods" role="group" aria-label="Momento del día">
-              <button class="is-on" data-roof="assets/img/d-roof.webp">Atardecer</button>
-              <button data-roof="assets/img/d-yoga.webp">Mañana</button>
-              <button data-roof="assets/img/d-terrace.webp">Sabores</button>
-              <button data-roof="assets/img/d-cinema.webp">Noche</button>
-            </div></div>
-        </div>
-      </div>
-    </div>
-
-    <ul class="mosaic reveal" aria-label="Galería">
-      <li><button data-lb="assets/img/d-stairs.webp" data-cap="La escalera y su galería fotográfica de época"><img src="assets/img/d-stairs.webp" alt="Escalera con galería fotográfica de época" loading="lazy" decoding="async"></button></li>
-      <li><button data-lb="assets/img/d-jacuzzi.webp" data-cap="Spa de patio"><img src="assets/img/d-jacuzzi.webp" alt="Jacuzzi en el patio" loading="lazy" decoding="async"></button></li>
-      <li><button data-lb="assets/img/d-hallway.webp" data-cap="Pasillos con celosía y luz natural"><img src="assets/img/d-hallway.webp" alt="Pasillo con celosía" loading="lazy" decoding="async"></button></li>
-      <li><button data-lb="assets/img/d-patio.webp" data-cap="Patio y vida social"><img src="assets/img/d-patio.webp" alt="Patio con comensales" loading="lazy" decoding="async"></button></li>
-      <li><button data-lb="assets/img/d-bikes.webp" data-cap="Estación de bicicletas"><img src="assets/img/d-bikes.webp" alt="Estación de bicicletas" loading="lazy" decoding="async"></button></li>
-      <li><button data-lb="assets/img/d-lobby1.webp" data-cap="Lobby y elevador"><img src="assets/img/d-lobby1.webp" alt="Lobby con elevador" loading="lazy" decoding="async"></button></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ============ MODELOS ============ -->
-<section class="panel cream" id="modelos">
-  <div class="wrap">
-    <header class="sec-head reveal">
-      <p class="eyebrow">Residencias</p>
-      <h2>Trece formas de habitar <em>un mismo concepto.</em></h2>
-      <p class="sec-head__lead">Diseños de planta independientes que combinan eficiencia espacial, ventilación natural y ambientes de carácter propio.</p>
-    </header>
-
-    <div class="hero-room reveal">
-      <img src="assets/img/d-residencias.webp" alt="Recibidor de una residencia ÁUREA con consola de mármol y madera" loading="lazy" decoding="async">
-    </div>
-
-    <div class="filters reveal">
-      <div class="chips" role="group" aria-label="Filtrar por recámaras">
-        <button class="is-on" data-f="all">Todas</button>
-        <button data-f="1">1 recámara</button>
-        <button data-f="2">2 recámaras</button>
-        <button data-f="ph">Penthouse</button>
-      </div>
-      <label class="range">Hasta <output id="rangeOut">150</output> m²
-        <input type="range" id="range" min="45" max="150" step="1" value="150" aria-label="Superficie máxima en metros cuadrados">
-      </label>
-    </div>
-
-    <ul class="cards" id="cards"></ul>
-    <p class="cards__empty" id="cardsEmpty" hidden>No hay modelos con esos criterios. Amplía la superficie.</p>
-
-    <header class="sec-head sec-head--sm reveal">
-      <h3>Interiores</h3>
-    </header>
-    <ul class="interiors reveal">
-      <li><button data-lb="assets/img/d-living.webp" data-cap="Sala"><img src="assets/img/d-living.webp" alt="Sala con sillones de ratán" loading="lazy" decoding="async"></button></li>
-      <li><button data-lb="assets/img/d-bedroom.webp" data-cap="Recámara"><img src="assets/img/d-bedroom.webp" alt="Recámara con piso de mosaico" loading="lazy" decoding="async"></button></li>
-      <li><button data-lb="assets/img/d-kitchen.webp" data-cap="Cocina"><img src="assets/img/d-kitchen.webp" alt="Cocina en madera y mármol rojo" loading="lazy" decoding="async"></button></li>
-      <li><button data-lb="assets/img/d-dining.webp" data-cap="Comedor"><img src="assets/img/d-dining.webp" alt="Comedor luminoso" loading="lazy" decoding="async"></button></li>
-      <li><button data-lb="assets/img/d-tvroom.webp" data-cap="Sala de estar"><img src="assets/img/d-tvroom.webp" alt="Sala de estar" loading="lazy" decoding="async"></button></li>
-    </ul>
-  </div>
 </section>
 
 <!-- ============ UBICACIÓN ============ -->
@@ -317,9 +108,9 @@
         <div class="car__bar" aria-hidden="true"><i id="carBar"></i></div>
       </div>
       <div class="ubi__text reveal">
-        <p class="ubi__star"><span aria-hidden="true">✦</span> <em>Único Centro Histórico con conexión directa a la playa.</em></p>
         <h2 class="visually-hidden">Ubicación</h2>
-        <p>Un lugar donde el tiempo parece caminar más despacio. Entre calles de historia, arquitectura, plazas y el mar cercano, el Centro Histórico conserva la esencia de un Mazatlán que se disfruta sin prisa.</p>
+        <p class="ubi__star" lang="en"><span aria-hidden="true">✦</span> <em>The only Centro Histórico in Mexico with a direct connection to the beach.</em></p>
+        <p lang="en">A place where time seems to move slower. Between streets filled with history, architecture, plazas, and the nearby sea, the Historic Center preserves the essence of a Mazatlán to be enjoyed without rush.</p>
         <p class="ubi__addr">Niños Héroes · Sixto Osuna<br>Centro Histórico, Mazatlán, Sinaloa</p>
         <a class="btn btn--gold" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Ni%C3%B1os+H%C3%A9roes+y+Sixto+Osuna%2C+Centro+Hist%C3%B3rico%2C+Mazatl%C3%A1n">Cómo llegar</a>
       </div>
@@ -1202,8 +993,253 @@
       </ul>
     </div>
   </div>
-  <figure class="wrap ubi__plaza reveal"><img src="assets/img/d-plazuela.webp" alt="Plazuela Machado por la noche" loading="lazy" decoding="async"><figcaption>Plazuela Machado, a minutos a pie.</figcaption></figure>
 </section>
+
+<!-- ============ MEMORIA DE ÁUREA ============ -->
+<section class="panel terra grain" id="historia">
+  <div class="wrap bola">
+    <div class="bola__img reveal">
+      <img src="assets/img/bola-cutout.webp" alt="Fotografía histórica de la esquina de Sixto Osuna y Niños Héroes, La Bola de Oro" width="923" height="680" loading="lazy" decoding="async">
+    </div>
+    <div class="bola__text">
+      <h2 class="memo-title">Memoria <br>de Áurea.</h2>
+      <div class="reveal">
+        <h3>La Bola de Oro</h3>
+        <p>En el siglo XIX, la actual esquina de Sixto Osuna y Niños Héroes formaba parte de la antigua Calle del Oro, una de las principales arterias comerciales del puerto.</p>
+        <p>En este sitio se estableció <em>La Bola de Oro</em>, un reconocido almacén vinculado a la actividad comercial de Mazatlán, donde se ofrecían provisiones, mercancías diversas y cerveza importada de Nueva Orleans.</p>
+      </div>
+    </div>
+  </div>
+  <ul class="wrap archive" aria-label="Archivo histórico">
+    <li><button data-lb="assets/img/h1.webp" data-cap="Comerciantes en la antigua Calle del Oro"><img src="assets/img/h1.webp" alt="Comerciantes en la antigua Calle del Oro" loading="lazy" decoding="async"></button></li>
+    <li><button data-lb="assets/img/h2.webp" data-cap="Anuncio de La Bola de Oro, Goldschmidt Sucesores"><img src="assets/img/h2.webp" alt="Anuncio de La Bola de Oro, Goldschmidt Sucesores" loading="lazy" decoding="async"></button></li>
+    <li><button data-lb="assets/img/h3.webp" data-cap="Tranvías urbanos del puerto de Mazatlán"><img src="assets/img/h3.webp" alt="Tranvías urbanos del puerto de Mazatlán" loading="lazy" decoding="async"></button></li>
+  </ul>
+  <div class="wrap bola bola--new">
+    <div class="bola__text reveal">
+      <h3>La Nueva esquina</h3>
+      <p>El predio, después de pasar por Inés Peiro, es adquirido por Víctor Manuel Cevallos Gómez, quien decide sustituir las antiguas estructuras por una construcción acorde con la modernidad de mediados del siglo XX.</p>
+      <p>Bajo la dirección de José Freeman Rojo se construye el actual edificio de departamentos de tres niveles. Su arquitectura incorpora volúmenes geométricos, esquinas curvas, composición horizontal, partesoles, balcones y ventanas tipo ojo de buey, evocando la proa de un barco y adaptándose al clima de Mazatlán.</p>
+    </div>
+    <div class="bola__img reveal">
+      <img src="assets/img/cathedral.webp" alt="Vista del Centro Histórico de Mazatlán con la Catedral al fondo" width="897" height="676" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE OVERVIEW ============ -->
+<section class="panel dark grain" id="overview">
+  <div class="wrap">
+    <header class="sec-head sec-head--light reveal"><h2 class="ovw__title" lang="en">The Overview</h2></header>
+    <ul class="ovw__facts reveal" aria-label="ÁUREA en cifras">
+      <li><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 3h24v26H4zM17 8.5a1.5 1.5 0 1 0 .1 0M16 12l-3 6h3l-2 8M16 12l2 6 3 2M16 18l3 8"/></svg><span><b data-count="2">2</b> accesos</span></li>
+      <li><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 28h25V12h-6v5h-6v5h-6v6M5 17 15 7M10 6h6v6"/></svg><span><b data-count="4">4</b> niveles</span></li>
+      <li><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 29V4h20v25M3 29h26M11 9h3M18 9h3M11 15h3M18 15h3M11 21h3M18 21h3"/></svg><span><b data-count="31">31</b> residencias</span></li>
+      <li><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m16 3 6 3.5v7L16 17l-6-3.5v-7zM10 13.500 4 17v7l6 3.5 6-3.5v-7M22 13.500l6 3.5v7l-6 3.500-6-3.500"/></svg><span><b data-count="13">13</b> tipologías</span></li>
+      <li><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 3h18v26H5zM9 29V10h10v19M14 10v19M11 7l1.5-2L14 7M16 5l1.5 2L19 5M27 14v.1M27 19v.1"/></svg><span>Elevador</span></li>
+    </ul>
+    <div class="ovw__tabs reveal" role="group" aria-label="Ver proyecto">
+      <button type="button" class="is-on" aria-pressed="true" data-ov="video">Video</button>
+      <button type="button" aria-pressed="false" data-ov="compare">Antes y después</button>
+    </div>
+    <div class="ovw__media reveal">
+      <div data-ov-pane="video">
+        <!-- VIDEO: cuando esté listo, reemplaza <img> y <p> por:
+             <video src="assets/video/overview.mp4" poster="assets/img/d-facade.webp" controls playsinline preload="none"></video> -->
+        <figure class="ovw__video"><img src="assets/img/d-facade.webp" alt="Render de ÁUREA Centro Histórico restaurado" loading="lazy" decoding="async"><figcaption><em>video</em><small>Próximamente</small></figcaption></figure>
+      </div>
+      <div data-ov-pane="compare" hidden>
+    <div class="compare" id="compare" aria-label="Comparador: edificio original y render de ÁUREA">
+      <img src="assets/img/d-facade.webp" alt="Render de ÁUREA Centro Histórico restaurado" loading="lazy" draggable="false">
+      <div class="compare__before"><img src="assets/img/concept-photo.webp" alt="Edificio original antes de la intervención" loading="lazy" draggable="false"></div>
+      <span class="compare__tag compare__tag--l">Ayer</span><span class="compare__tag compare__tag--r">ÁUREA</span>
+      <div class="compare__handle" id="compareHandle" role="slider" tabindex="0" aria-label="Deslizar entre el edificio original y ÁUREA" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><i></i></div>
+    </div>
+    <p class="compare__note">Arrastra para comparar. Las imágenes del proyecto son ilustrativas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ============ PILARES ============ -->
+<section class="panel dark grain" id="propuesta">
+  <img class="pv__mark" src="assets/img/logo-light.webp" alt="" aria-hidden="true">
+  <div class="wrap">
+    <header class="sec-head sec-head--light reveal">
+      <p class="eyebrow eyebrow--gold">Propuesta de valor</p>
+      <h2>Una nueva forma de habitar <em>la historia.</em></h2>
+      <p class="sec-head__lead">Cinco ideas sostienen cada decisión de ÁUREA. Recórrelas.</p>
+    </header>
+
+    <div class="pv reveal" id="pv" role="list">
+      <article class="pv__p is-on" role="listitem" tabindex="0" data-i="0" style="--c:#B4530F">
+        <img src="assets/img/bola-de-oro.webp" alt="" loading="lazy" decoding="async">
+        <div class="pv__shade"></div>
+        <span class="pv__n">01</span>
+        <h3 class="pv__t">Historia y arquitectura</h3>
+        <div class="pv__body">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path pathLength="1" d="M32 6 8 26v32h48V26z"/><path pathLength="1" d="M32 6v52M20 20l12 14M44 20 32 34M16 44l16-10 16 10"/></svg>
+          <h4>Historia y arquitectura</h4>
+          <p>Un edificio con antecedentes e identidad arquitectónica que conserva elementos de su esencia original.</p>
+          <span class="pv__tag">Art Déco · Calle del Oro</span>
+        </div>
+      </article>
+      <article class="pv__p" role="listitem" tabindex="0" data-i="1" style="--c:#8A3F0B">
+        <img src="assets/img/concept-photo.webp" alt="" loading="lazy" decoding="async">
+        <div class="pv__shade"></div>
+        <span class="pv__n">02</span>
+        <h3 class="pv__t">Restauración con propósito</h3>
+        <div class="pv__body">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path pathLength="1" d="M10 14h30a6 6 0 0 1 0 12H10zM22 26v34"/><path pathLength="1" d="M44 18l10 10M50 14l4 4"/></svg>
+          <h4>Restauración con propósito</h4>
+          <p>Intervenimos con respeto: cada material y cada detalle recuperado cuenta la historia del inmueble.</p>
+          <span class="pv__tag">Fachada · Materiales · Detalle</span>
+        </div>
+      </article>
+      <article class="pv__p" role="listitem" tabindex="0" data-i="2" style="--c:#8F6A66">
+        <img src="assets/img/d-stairs.webp" alt="" loading="lazy" decoding="async">
+        <div class="pv__shade"></div>
+        <span class="pv__n">03</span>
+        <h3 class="pv__t">Arte y cultura</h3>
+        <div class="pv__body">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path pathLength="1" d="M32 8C16 8 6 20 6 32c0 10 8 14 14 14 5 0 6-3 6-6 0-4 3-6 7-6h8c8 0 17-4 17-12C58 14 46 8 32 8z"/><circle pathLength="1" cx="20" cy="26" r="3"/><circle pathLength="1" cx="32" cy="19" r="3"/><circle pathLength="1" cx="44" cy="24" r="3"/></svg>
+          <h4>Arte y cultura</h4>
+          <p>El arte acompaña y enriquece los espacios, no únicamente como decoración.</p>
+          <span class="pv__tag">Galería de época · Obra</span>
+        </div>
+      </article>
+      <article class="pv__p" role="listitem" tabindex="0" data-i="3" style="--c:#7C8967">
+        <img src="assets/img/d-living.webp" alt="" loading="lazy" decoding="async">
+        <div class="pv__shade"></div>
+        <span class="pv__n">04</span>
+        <h3 class="pv__t">Experiencia residencial</h3>
+        <div class="pv__body">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path pathLength="1" d="M10 54V30l22-18 22 18v24z"/><path pathLength="1" d="M26 54V38h12v16M22 30h20"/></svg>
+          <h4>Experiencia residencial</h4>
+          <p>Una forma de habitar que prioriza la comodidad, la privacidad, la calidad y la conexión con el entorno.</p>
+          <span class="pv__tag">Confort · Privacidad · Calidad</span>
+        </div>
+      </article>
+      <article class="pv__p" role="listitem" tabindex="0" data-i="4" style="--c:#A6873D">
+        <img src="assets/img/beach.webp" alt="" loading="lazy" decoding="async">
+        <div class="pv__shade"></div>
+        <span class="pv__n">05</span>
+        <h3 class="pv__t">Ubicación y contexto</h3>
+        <div class="pv__body">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path pathLength="1" d="M6 14l16-6 20 6 16-6v42l-16 6-20-6-16 6z"/><path pathLength="1" d="M22 8v42M42 14v42"/></svg>
+          <h4>Ubicación y contexto</h4>
+          <p>Vivir cerca de la vida cultural, gastronómica, histórica y social de Mazatlán.</p>
+          <span class="pv__tag">Plazuela Machado · Olas Altas</span>
+        </div>
+      </article>
+    </div>
+    <div class="pv__bar" aria-hidden="true"><i id="pvBar"></i></div>
+  </div>
+</section>
+
+
+<!-- ============ EXPERIENCIA ============ -->
+<section class="panel dark grain" id="experiencia">
+  <div class="wrap">
+    <header class="sec-head sec-head--light reveal">
+      <p class="eyebrow eyebrow--gold">El verdadero lujo está en la experiencia</p>
+      <h2>Arquitectura · Arte · Hospitalidad · <em>Entorno</em></h2>
+    </header>
+
+    <div class="tabs reveal" role="tablist" aria-label="Espacios de ÁUREA">
+      <button role="tab" aria-selected="true" data-tab="access">Access &amp; Concierge</button>
+      <button role="tab" aria-selected="false" data-tab="outdoor">Outdoor &amp; Social Zone</button>
+      <button role="tab" aria-selected="false" data-tab="coffee">Coffee Station</button>
+      <button role="tab" aria-selected="false" data-tab="roof">Roof &amp; Experiences</button>
+    </div>
+
+    <div class="stage reveal" id="stage">
+      <div class="stage__panes">
+        <div class="pane is-on" data-pane="access">
+          <img src="assets/img/d-access.webp" alt="Vestíbulo y concierge con piso de geometría en blanco y negro" loading="lazy" decoding="async">
+          <div class="pane__txt"><h3>Access &amp; Concierge.</h3><p>Geometría, contraste y perspectiva. Iluminación cálida y una galería fotográfica de época que enmarca el ascenso: un recorrido sobrio que conecta el vestíbulo con el elevador, acompañado por un servicio de concierge dedicado a elevar la experiencia de cada estancia.</p></div>
+        </div>
+        <div class="pane" data-pane="outdoor">
+          <img src="assets/img/d-outdoor.webp" alt="Patio central con el árbol de Huanacaxtle al atardecer" loading="lazy" decoding="async">
+          <div class="pane__txt"><h3>Outdoor &amp; Social Zone.</h3><p>En el corazón del proyecto. Un patio central donde la vegetación curada, la ventilación natural y la luz de acento crean un entorno de pausa y encuentro. Complementado con una estación de bicicletas que integra la movilidad urbana al ritmo cotidiano.</p></div>
+        </div>
+        <div class="pane" data-pane="coffee">
+          <img src="assets/img/d-coffee.webp" alt="Coffee Station de ÁUREA Café" loading="lazy" decoding="async">
+          <div class="pane__txt"><h3>Coffee Station.</h3><p>La pausa justa antes del exterior. Este rincón une café de grano seleccionado y la vista abierta a la ciudad, funcionando como un paso natural hacia la luz de la terraza.</p></div>
+        </div>
+        <div class="pane" data-pane="roof">
+          <img src="assets/img/d-roof.webp" alt="Terraza con fogata y atardecer" loading="lazy" id="roofImg">
+          <div class="pane__txt"><h3>Roof &amp; Experiences.</h3><p>Una extensión de la vida privada hacia el aire libre. La terraza superior está concebida como un escenario dinámico que activa la comunidad y el bienestar: desde sesiones de wellness al amanecer hasta encuentros informales al atardecer.</p>
+            <div class="moods" role="group" aria-label="Momento del día">
+              <button class="is-on" data-roof="assets/img/d-roof.webp">Atardecer</button>
+              <button data-roof="assets/img/d-yoga.webp">Mañana</button>
+              <button data-roof="assets/img/d-terrace.webp">Sabores</button>
+              <button data-roof="assets/img/d-cinema.webp">Noche</button>
+            </div></div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="mosaic reveal" aria-label="Galería">
+      <li><button data-lb="assets/img/d-stairs.webp" data-cap="La escalera y su galería fotográfica de época"><img src="assets/img/d-stairs.webp" alt="Escalera con galería fotográfica de época" loading="lazy" decoding="async"></button></li>
+      <li><button data-lb="assets/img/d-jacuzzi.webp" data-cap="Spa de patio"><img src="assets/img/d-jacuzzi.webp" alt="Jacuzzi en el patio" loading="lazy" decoding="async"></button></li>
+      <li><button data-lb="assets/img/d-hallway.webp" data-cap="Pasillos con celosía y luz natural"><img src="assets/img/d-hallway.webp" alt="Pasillo con celosía" loading="lazy" decoding="async"></button></li>
+      <li><button data-lb="assets/img/d-patio.webp" data-cap="Patio y vida social"><img src="assets/img/d-patio.webp" alt="Patio con comensales" loading="lazy" decoding="async"></button></li>
+      <li><button data-lb="assets/img/d-bikes.webp" data-cap="Estación de bicicletas"><img src="assets/img/d-bikes.webp" alt="Estación de bicicletas" loading="lazy" decoding="async"></button></li>
+      <li><button data-lb="assets/img/d-lobby1.webp" data-cap="Lobby y elevador"><img src="assets/img/d-lobby1.webp" alt="Lobby con elevador" loading="lazy" decoding="async"></button></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ MODELOS ============ -->
+<section class="panel cream" id="modelos">
+  <div class="wrap">
+    <article class="ph reveal">
+      <div class="ph__txt">
+        <h3>Del Oro <span>Penthouse.</span> <em>148 m²</em></h3>
+        <p>Sala • Comedor • Cocina • 3 recámaras<br>3.5 baños • Terraza privada con vista</p>
+        <button type="button" class="btn btn--cream" data-model="delOro">Ver penthouse</button>
+      </div>
+      <img src="assets/img/penthouse-plan.webp" width="408" height="621" alt="Plano del penthouse Del Oro" loading="lazy" decoding="async">
+    </article>
+  </div>
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow">Residencias</p>
+      <h2>Trece formas de habitar <em>un mismo concepto.</em></h2>
+      <p class="sec-head__lead">Diseños de planta independientes que combinan eficiencia espacial, ventilación natural y ambientes de carácter propio.</p>
+    </header>
+
+    <div class="filters reveal">
+      <div class="chips" role="group" aria-label="Filtrar por recámaras">
+        <button class="is-on" data-f="all">Todas</button>
+        <button data-f="1">1 recámara</button>
+        <button data-f="2">2 recámaras</button>
+      </div>
+      <label class="range">Hasta <output id="rangeOut">95</output> m²
+        <input type="range" id="range" min="45" max="95" step="1" value="95" aria-label="Superficie máxima en metros cuadrados">
+      </label>
+    </div>
+
+    <ul class="cards" id="cards"></ul>
+    <p class="cards__empty" id="cardsEmpty" hidden>No hay modelos con esos criterios. Amplía la superficie.</p>
+
+    <header class="sec-head sec-head--sm reveal">
+      <h3>Interiores</h3>
+    </header>
+    <ul class="interiors reveal">
+      <li><button data-lb="assets/img/d-residencias.webp" data-cap="Recibidor"><img src="assets/img/d-residencias.webp" alt="Recibidor con consola de mármol y madera" loading="lazy" decoding="async"></button></li>
+      <li><button data-lb="assets/img/d-living.webp" data-cap="Sala"><img src="assets/img/d-living.webp" alt="Sala con sillones de ratán" loading="lazy" decoding="async"></button></li>
+      <li><button data-lb="assets/img/d-bedroom.webp" data-cap="Recámara"><img src="assets/img/d-bedroom.webp" alt="Recámara con piso de mosaico" loading="lazy" decoding="async"></button></li>
+      <li><button data-lb="assets/img/d-kitchen.webp" data-cap="Cocina"><img src="assets/img/d-kitchen.webp" alt="Cocina en madera y mármol rojo" loading="lazy" decoding="async"></button></li>
+      <li><button data-lb="assets/img/d-dining.webp" data-cap="Comedor"><img src="assets/img/d-dining.webp" alt="Comedor luminoso" loading="lazy" decoding="async"></button></li>
+      <li><button data-lb="assets/img/d-tvroom.webp" data-cap="Sala de estar"><img src="assets/img/d-tvroom.webp" alt="Sala de estar" loading="lazy" decoding="async"></button></li>
+    </ul>
+  </div>
+</section>
+
 
 <!-- ============ PARA QUIÉN ============ -->
 <section class="panel mauve grain" id="comunidad">
@@ -1313,6 +1349,6 @@
 <script defer src="js/vendor/gsap.min.js"></script>
 <script defer src="js/vendor/ScrollTrigger.min.js"></script>
 <script defer src="js/vendor/lenis.min.js"></script>
-<script defer src="js/main.js"></script>
+<script defer src="js/main.js?v=2"></script>
 </body>
 </html>

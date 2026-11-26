@@ -77,17 +77,10 @@
     });
 
     /* galerías: entrada escalonada de cada miniatura */
-    $$('.mosaic, .interiors').forEach(ul => gsap.from($$('li', ul), {
+    $$('.mosaic, .interiors, .archive').forEach(ul => gsap.from($$('li', ul), {
       y: 46, opacity: 0, duration: .9, ease: 'power3.out', stagger: .08,
       scrollTrigger: { trigger: ul, start: 'top 88%', once: true }
     }));
-
-    /* foto grande de Modelos: parallax suave dentro de su marco */
-    const hr = $('.hero-room img');
-    if (hr) {
-      gsap.set(hr, { scale: 1.16 });
-      gsap.fromTo(hr, { yPercent: -6 }, { yPercent: 6, ease: 'none', scrollTrigger: { trigger: hr.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } });
-    }
 
     addEventListener('load', () => ScrollTrigger.refresh());
   }
@@ -112,7 +105,7 @@
 
   /* active link */
   const links = $$('a', nav);
-  const secMap = { inicio: 'inicio', memoria: 'memoria', restauracion: 'memoria', propuesta: 'memoria', historia: 'memoria', experiencia: 'memoria', modelos: 'modelos', ubicacion: 'ubicacion', comunidad: 'ubicacion', dossier: 'dossier', contacto: 'contacto' };
+  const secMap = { inicio: 'inicio', memoria: 'inicio', historia: 'historia', overview: 'historia', propuesta: 'historia', experiencia: 'historia', modelos: 'modelos', ubicacion: 'ubicacion', comunidad: 'ubicacion', dossier: 'dossier', contacto: 'contacto' };
   const spy = new IntersectionObserver((es) => es.forEach(e => {
     if (!e.isIntersecting) return;
     const id = secMap[e.target.id];
@@ -180,6 +173,14 @@
   // demostración inicial
   new IntersectionObserver((es, o) => { if (es[0].isIntersecting && !reduce) { o.disconnect(); let t0; const a = (t) => { t0 ??= t; const p = (t - t0) / 1800; if (p < 1 && !drag) { setPos(50 + Math.sin(p * Math.PI * 2) * 22 * (1 - p)); requestAnimationFrame(a); } }; requestAnimationFrame(a); } }, { threshold: .6 }).observe(cmp);
 
+  /* ---------- overview: video / antes y después ---------- */
+  $$('[data-ov]').forEach(b => b.addEventListener('click', () => {
+    $$('[data-ov]').forEach(x => { x.classList.toggle('is-on', x === b); x.setAttribute('aria-pressed', x === b); });
+    $$('[data-ov-pane]').forEach(p => p.hidden = p.dataset.ovPane !== b.dataset.ov);
+    if (b.dataset.ov !== 'video') $('[data-ov-pane=video] video')?.pause();
+    window.ScrollTrigger?.refresh();
+  }));
+
   /* ---------- experiencia: tabs + estados de la terraza ---------- */
   const tabs = $$('.tabs [role=tab]'), panes = $$('.pane');
   const show = (k) => { tabs.forEach(t => t.setAttribute('aria-selected', t.dataset.tab === k)); panes.forEach(p => p.classList.toggle('is-on', p.dataset.pane === k)); };
@@ -208,26 +209,27 @@
     { k: 'delOro', n: 'Del Oro', sub: 'Penthouse', m2: 148, r: 3, ph: true, bg: '#a9b594', d: ['Sala', 'Comedor', 'Cocina', '3 recámaras', '3.5 baños', 'Terraza privada con vista'] }
   ];
   const ul = $('#cards');
-  ul.innerHTML = M.map((m, i) => `<li class="card${m.ph ? ' card--ph' : ''}" data-i="${i}" style="--bg:${m.bg}"><button type="button" aria-label="Ver modelo ${m.n}${m.sub ? ' ' + m.sub : ''}, ${m.m2} metros cuadrados">
+  ul.innerHTML = M.map((m, i) => m.ph ? '' : `<li class="card" data-i="${i}" style="--bg:${m.bg}"><button type="button" aria-label="Ver modelo ${m.n}${m.sub ? ' ' + m.sub : ''}, ${m.m2} metros cuadrados">
       <span class="card__plan"><img src="assets/img/plans/${m.k}.webp" alt="Plano del modelo ${m.n}" loading="lazy"></span>
-      <span class="card__meta"><h3>${m.n}${m.sub ? '<br><small style="font-size:.55em;letter-spacing:.2em">' + m.sub + '</small>' : ''}<i>${m.m2} m²</i></h3><p>${m.d.filter(x => /recámara/.test(x)).join('')} · ${m.d.filter(x => /baño/.test(x)).join('')}</p></span></button></li>`).join('');
-  let filter = 'all', max = 150;
+      <span class="card__meta"><h3>${m.n}<i>${m.m2} m²</i></h3><p>${m.d.filter(x => /recámara/.test(x)).join('')} · ${m.d.filter(x => /baño/.test(x)).join('')}</p></span></button></li>`).join('');
+  let filter = 'all', max = 95;
   const apply = () => {
     let n = 0;
-    $$('.card', ul).forEach(c => { const m = M[c.dataset.i]; const ok = (filter === 'all' || (filter === 'ph' ? m.ph : (!m.ph && String(m.r) === filter))) && m.m2 <= max; c.hidden = !ok; n += ok; });
+    $$('.card', ul).forEach(c => { const m = M[c.dataset.i]; const ok = (filter === 'all' || String(m.r) === filter) && m.m2 <= max; c.hidden = !ok; n += ok; });
     $('#cardsEmpty').hidden = n > 0;
   };
   $$('.chips button').forEach(b => b.addEventListener('click', () => { $$('.chips button').forEach(x => x.classList.toggle('is-on', x === b)); filter = b.dataset.f; apply(); }));
   $('#range').addEventListener('input', (e) => { max = +e.target.value; $('#rangeOut').textContent = max; apply(); });
   const modal = $('#modal');
-  ul.addEventListener('click', (e) => {
-    const li = e.target.closest('.card'); if (!li) return; const m = M[li.dataset.i];
+  const openModel = (m) => {
     $('#mPlan').style.setProperty('--bg', m.bg); $('#mImg').src = `assets/img/plans/${m.k}.webp`; $('#mImg').alt = `Plano del modelo ${m.n}`;
     $('#mTitle').textContent = m.n + (m.sub ? ' ' + m.sub : ''); $('#mM2').textContent = m.m2 + ' m²';
     $('#mList').innerHTML = m.d.map(x => `<li>${x}</li>`).join('');
     $('#mCta').href = wa(`Hola, quiero la ficha técnica del modelo ${m.n}${m.sub ? ' ' + m.sub : ''} (${m.m2} m²) de ÁUREA Centro Histórico.`);
     modal.showModal();
-  });
+  };
+  ul.addEventListener('click', (e) => { const li = e.target.closest('.card'); if (li) openModel(M[li.dataset.i]); });
+  $('[data-model]').addEventListener('click', (e) => openModel(M.find(m => m.k === e.currentTarget.dataset.model)));
   const closeOnBackdrop = (d) => d.addEventListener('click', (e) => { if (e.target === d) d.close(); });
   closeOnBackdrop(modal); $('#modalX').addEventListener('click', () => modal.close());
 
